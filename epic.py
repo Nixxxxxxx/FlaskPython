@@ -16,11 +16,11 @@ def hello_world():
         # if we press the turn on button
         if request.form['submit'] == 'Turn On':
             print ("TURN 00")
-        #    turnPortOn()
+            turnPortOn()
         # if we press the turn off button
         elif request.form['submit'] == 'Turn Off': 
             print ('TURN OFF')
-        #   turnPortOff()
+           turnPortOff()
         else:
             pass
     
@@ -47,6 +47,7 @@ if __name__ == "__main__":
     # lets launch our webpage!
     # do 0.0.0.0 so that we can log into this webpage
     # using another computer on the same network later
+    app.debug = True
     app.run(host='0.0.0.0',port=80)
 
 
