@@ -28,7 +28,7 @@ def hello_world():
     return render_template('index.html', author=author, value=100*(readval/1023.))
 
 def turnPortOn():
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
     GPIO.cleanup()
     GPIO.setwarnings(False)
     GPIO.setup(17,GPIO.OUT)
@@ -36,7 +36,7 @@ def turnPortOn():
     GPIO.output(17,GPIO.HIGH)
 
 def turnPortOff():
-    GPIO.setmode(GPIO.BCM)
+    GPIO.setmode(GPIO.BOARD)
     GPIO.cleanup()
     GPIO.setwarnings(False)
     GPIO.setup(17,GPIO.OUT)
