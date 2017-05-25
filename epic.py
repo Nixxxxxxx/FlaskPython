@@ -16,11 +16,11 @@ def hello_world():
         # if we press the turn on button
         if request.form['submit'] == 'Turn On':
             print ("TURN 00")
-            turnPortOn()
+        #    turnPortOn()
         # if we press the turn off button
         elif request.form['submit'] == 'Turn Off': 
             print ('TURN OFF')
-            turnPortOff()
+        #   turnPortOff()
         else:
             pass
     
