@@ -1,4 +1,7 @@
+import RPi.GPIO as GPIO
+
 from flask import Flask, render_template,request, redirect, url_for
+
 app = Flask(__name__)
 # we are able to make 2 different requests on our webpage
 # GET = we just type in the url
@@ -6,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', methods = ['POST','GET'])
 def hello_world():
     # variables for template page (templates/index.html)
-    author = "Kyle"
+    author = "Zero"
     readval = 10
     # if we make a post request on the webpage aka press button then do stuff
     if request.method == 'POST':
@@ -22,6 +25,23 @@ def hello_world():
     
     # the default page to display will be our template with our template variables
     return render_template('index.html', author=author, value=100*(readval/1023.))
+
+def turnPortOn():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.cleanup()
+    GPIO.setwarnings(False)
+    GPIO.setup(17,GPIO.OUT)
+    print "Lights on"
+    GPIO.output(17,GPIO.HIGH)
+
+def turnPortOff():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.cleanup()
+    GPIO.setwarnings(False)
+    GPIO.setup(17,GPIO.OUT)
+    print "Lights off"
+    GPIO.output(17,GPIO.LOW)
+    
 if __name__ == "__main__":
     # lets launch our webpage!
     # do 0.0.0.0 so that we can log into this webpage
